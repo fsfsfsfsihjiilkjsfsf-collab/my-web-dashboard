@@ -2,13 +2,17 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('<h1>ยินดีต้อนรับสู่ Dashboard บอทของฉัน</h1><p>ระบบพร้อมทำงานแล้ว!</p>');
+    // ใช้คำสั่ง res.send เพื่อแสดงข้อความที่ต้องการ
+    res.send(`
+        <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+            <h1>สำเร็จ!</h1>
+            <p style="font-size: 20px; color: green;">คุณยืนยันเรียบร้อยแล้ว</p>
+        </div>
+    `);
 });
 
-// Vercel ต้องการให้ export ตัว app ออกไป
 module.exports = app;
 
-// รันในเครื่องเพื่อทดสอบได้
 if (require.main === module) {
     app.listen(3000, () => console.log('Server running on port 3000'));
 }
